@@ -72,7 +72,6 @@
   .hero-logo svg { width: 100%; overflow: visible; filter: drop-shadow(0 0 28px rgba(200,217,111,.25)); }
   .hero-logo .ecg-logo { stroke-dasharray: 160; stroke-dashoffset: 160; animation: traco 2.2s ease-out .3s forwards; }
   @keyframes traco { to { stroke-dashoffset: 0; } }
-  .hero-logo span { display: block; margin-top: 0; font-family: 'Space Grotesk'; font-weight: 700; font-size: clamp(2.4rem, 5vw, 4.4rem); letter-spacing: .08em; padding-left: .08em; color: var(--creme); transform: translateX(5%); }
   .hero .container { position: relative; z-index: 2; }
   .selo {
     display: inline-flex; align-items: center; gap: 8px;
@@ -245,8 +244,7 @@
     .sobre-grid, .dia.ativo, .inscricao-box, .local-grid { grid-template-columns: 1fr; }
     .inscricao-box { padding: 34px 24px; }
     .hero-logo { top: 84px; right: 4%; transform: none; width: 96px; }
-    .hero-logo span { display: none; }
-    .hero { padding-top: 190px; }
+      .hero { padding-top: 190px; }
     .contagem .bloco { min-width: 72px; }
     .contagem .num { font-size: 1.8rem; }
   }
@@ -284,7 +282,6 @@
       <path d="M55 4l40 23v46l-40 23-40-23V27z" stroke="#a3b18a" stroke-width="5"/>
       <path class="ecg-logo" d="M4 58h28l8-20 12 42 10-30 6 8h28" stroke="#c8d96f" stroke-width="5"/>
     </svg>
-    <span>SEB</span>
   </div>
   <div class="hero-bg" aria-hidden="true">
     <svg class="ecg" viewBox="0 0 1600 120" preserveAspectRatio="none">
