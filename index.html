@@ -68,7 +68,11 @@
   .ecg { position: absolute; left: 0; right: 0; top: 58%; width: 100%; height: 120px; }
   .ecg path { stroke: var(--lima); stroke-width: 2; fill: none; stroke-dasharray: 1600; stroke-dashoffset: 1600; animation: pulso 4s linear infinite; filter: drop-shadow(0 0 6px rgba(200,217,111,.6)); }
   @keyframes pulso { to { stroke-dashoffset: 0; } }
-  .hex-grid { position: absolute; right: -60px; top: 80px; width: 520px; opacity: .35; }
+  .hero-logo { position: absolute; z-index: 1; right: max(4%, calc((100vw - 1120px) / 2)); top: 50%; transform: translateY(-50%); width: min(400px, 34vw); text-align: center; }
+  .hero-logo svg { width: 100%; overflow: visible; filter: drop-shadow(0 0 28px rgba(200,217,111,.25)); }
+  .hero-logo .ecg-logo { stroke-dasharray: 160; stroke-dashoffset: 160; animation: traco 2.2s ease-out .3s forwards; }
+  @keyframes traco { to { stroke-dashoffset: 0; } }
+  .hero-logo span { display: block; margin-top: 10px; font-family: 'Space Grotesk'; font-weight: 700; font-size: clamp(2.4rem, 5vw, 4.4rem); letter-spacing: .08em; color: var(--creme); }
   .hero .container { position: relative; z-index: 2; }
   .selo {
     display: inline-flex; align-items: center; gap: 8px;
@@ -79,7 +83,7 @@
   }
   .selo::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--lima); animation: bate 1.2s ease-in-out infinite; }
   @keyframes bate { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: .5; } }
-  .hero h1 { font-size: clamp(2.4rem, 6vw, 4.6rem); max-width: 820px; letter-spacing: -.02em; }
+  .hero h1 { font-size: clamp(2.4rem, 5.4vw, 4.4rem); max-width: 640px; letter-spacing: -.02em; }
   .hero h1 em { font-style: normal; color: var(--lima); }
   .hero .sub { margin-top: 18px; font-size: 1.15rem; color: var(--salvia-claro); max-width: 600px; }
   .info-rapida { display: flex; flex-wrap: wrap; gap: 26px; margin-top: 30px; font-weight: 500; }
@@ -240,13 +244,15 @@
     .menu-btn { display: block; }
     .sobre-grid, .dia.ativo, .inscricao-box, .local-grid { grid-template-columns: 1fr; }
     .inscricao-box { padding: 34px 24px; }
-    .hex-grid { opacity: .15; }
+    .hero-logo { top: 84px; right: 4%; transform: none; width: 96px; }
+    .hero-logo span { display: none; }
+    .hero { padding-top: 190px; }
     .contagem .bloco { min-width: 72px; }
     .contagem .num { font-size: 1.8rem; }
   }
   @media (prefers-reduced-motion: reduce) {
     * { animation: none !important; transition: none !important; }
-    .ecg path { stroke-dashoffset: 0; }
+    .ecg path, .hero-logo .ecg-logo { stroke-dashoffset: 0; }
     .revelar { opacity: 1; transform: none; }
   }
 </style>
@@ -273,14 +279,14 @@
 </nav>
 
 <header class="hero" id="topo">
-  <div class="hero-bg" aria-hidden="true">
-    <svg class="hex-grid" viewBox="0 0 400 400" fill="none" stroke="#a3b18a" stroke-width="1.2">
-      <path d="M100 60l40 23v46l-40 23-40-23V83z"/><path d="M180 106l40 23v46l-40 23-40-23v-46z"/>
-      <path d="M260 60l40 23v46l-40 23-40-23V83z"/><path d="M260 152l40 23v46l-40 23-40-23v-46z"/>
-      <path d="M340 106l40 23v46l-40 23-40-23v-46z"/><path d="M180 198l40 23v46l-40 23-40-23v-46z"/>
-      <path d="M340 198l40 23v46l-40 23-40-23v-46z"/><path d="M260 244l40 23v46l-40 23-40-23v-46z"/>
-      <circle cx="140" cy="83" r="4" fill="#c8d96f"/><circle cx="300" cy="175" r="4" fill="#c8d96f"/><circle cx="220" cy="267" r="4" fill="#c8d96f"/>
+  <div class="hero-logo" aria-hidden="true">
+    <svg viewBox="0 0 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M55 4l40 23v46l-40 23-40-23V27z" stroke="#a3b18a" stroke-width="5"/>
+      <path class="ecg-logo" d="M4 58h28l8-20 12 42 10-30 6 8h28" stroke="#c8d96f" stroke-width="5"/>
     </svg>
+    <span>SEB</span>
+  </div>
+  <div class="hero-bg" aria-hidden="true">
     <svg class="ecg" viewBox="0 0 1600 120" preserveAspectRatio="none">
       <path d="M0 60h380l20-8 18 8h40l14-50 20 100 16-70 12 20h70l24-12 20 12h420l20-8 18 8h40l14-50 20 100 16-70 12 20h70l24-12 20 12h292"/>
     </svg>
